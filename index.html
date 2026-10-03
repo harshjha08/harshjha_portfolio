@@ -1,45 +1,202 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- =========================
+         BASIC DOCUMENT SETUP
+    ========================== -->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+
+    <meta name="theme-color" content="#ffffff" />
+
     <title>Harsh Jha — Web Designer & Developer</title>
-    <meta name="google-site-verification" content="yGx-MaILYqmEdhVyhga_23cbKL_OqmXggvozZF3abq8" />
+
     <meta
       name="description"
-      content="Harsh Jha designs and builds modern, responsive websites for small businesses, creators and organizations."
+      content="Harsh Jha is a web designer and developer building modern, responsive websites and digital experiences for businesses, creators and organizations."
     />
-    <link rel="canonical" href="https://[ADD-DOMAIN]/" />
-    <link rel="icon" href="/favicon.svg" />
+
+    <meta
+      name="keywords"
+      content="Harsh Jha, Harsh Jha developer, Harsh Jha web designer, web developer, frontend developer, React developer, website designer, freelance web developer"
+    />
+
+    <meta name="author" content="Harsh Jha" />
+
+    <meta name="robots" content="index, follow" />
+
+    <!-- =========================
+         GOOGLE SEARCH CONSOLE
+    ========================== -->
+    <meta
+      name="google-site-verification"
+      content="yGx-MaILYqmEdhVyhga_23cbKL_OqmXggvozZF3abq8"
+    />
+
+    <!-- =========================
+         CANONICAL URL
+    ========================== -->
+    <link
+      rel="canonical"
+      href="https://harshjhaportfolio-three.vercel.app/"
+    />
+
+    <!-- =========================
+         FAVICON
+    ========================== -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon.svg"
+    />
+
+    <link
+      rel="apple-touch-icon"
+      href="/favicon.svg"
+    />
+
+    <!-- =========================
+         OPEN GRAPH
+         WhatsApp / Facebook / LinkedIn
+    ========================== -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Harsh Jha — Web Designer & Developer" />
+
+    <meta
+      property="og:title"
+      content="Harsh Jha — Web Designer & Developer"
+    />
+
     <meta
       property="og:description"
       content="You bring the idea. I build the experience."
     />
-    <meta property="og:url" content="https://[ADD-DOMAIN]/" />
-    <meta property="og:image" content="https://[ADD-DOMAIN]/og.svg" />
-    <meta name="twitter:image" content="https://[ADD-DOMAIN]/og.svg" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Harsh Jha — Web Designer & Developer" />
+
+    <meta
+      property="og:url"
+      content="https://harshjhaportfolio-three.vercel.app/"
+    />
+
+    <meta
+      property="og:site_name"
+      content="Harsh Jha"
+    />
+
+    <meta
+      property="og:locale"
+      content="en_IN"
+    />
+
+    <meta
+      property="og:image"
+      content="https://harshjhaportfolio-three.vercel.app/og.svg"
+    />
+
+    <meta
+      property="og:image:alt"
+      content="Harsh Jha — Web Designer & Developer"
+    />
+
+    <!-- =========================
+         TWITTER / X
+    ========================== -->
+    <meta
+      name="twitter:card"
+      content="summary_large_image"
+    />
+
+    <meta
+      name="twitter:title"
+      content="Harsh Jha — Web Designer & Developer"
+    />
+
+    <meta
+      name="twitter:description"
+      content="You bring the idea. I build the experience."
+    />
+
+    <meta
+      name="twitter:image"
+      content="https://harshjhaportfolio-three.vercel.app/og.svg"
+    />
+
+    <meta
+      name="twitter:image:alt"
+      content="Harsh Jha — Web Designer & Developer"
+    />
+
+    <!-- =========================
+         PERSON / PROFILE DATA
+    ========================== -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Person",
+        "@id": "https://harshjhaportfolio-three.vercel.app/#person",
         "name": "Harsh Jha",
+        "url": "https://harshjhaportfolio-three.vercel.app/",
+        "image": "https://harshjhaportfolio-three.vercel.app/portrait.jpg",
         "jobTitle": "Web Designer & Developer",
-        "alumniOf": "Lovely Professional University"
+        "description": "Web designer and developer building modern, responsive websites and digital experiences.",
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Lovely Professional University"
+        },
+        "sameAs": [
+          "https://github.com/harshjha08"
+        ]
       }
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- =========================
+         WEBSITE STRUCTURED DATA
+    ========================== -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://harshjhaportfolio-three.vercel.app/#website",
+        "url": "https://harshjhaportfolio-three.vercel.app/",
+        "name": "Harsh Jha — Web Designer & Developer",
+        "description": "Portfolio of Harsh Jha, a web designer and developer.",
+        "publisher": {
+          "@id": "https://harshjhaportfolio-three.vercel.app/#person"
+        }
+      }
+    </script>
+
+    <!-- =========================
+         PERFORMANCE
+    ========================== -->
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+
+    <!-- =========================
+         FONTS
+    ========================== -->
     <link
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@500;600&display=swap"
       rel="stylesheet"
     />
   </head>
+
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+
+    <script
+      type="module"
+      src="/src/main.jsx"
+    ></script>
   </body>
 </html>
