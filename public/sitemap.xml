@@ -1,1 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://[ADD-DOMAIN]/</loc></url><url><loc>https://[ADD-DOMAIN]/about</loc></url><url><loc>https://[ADD-DOMAIN]/projects</loc></url><url><loc>https://[ADD-DOMAIN]/services</loc></url><url><loc>https://[ADD-DOMAIN]/certificates</loc></url><url><loc>https://[ADD-DOMAIN]/contact</loc></url></urlset>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://harshjhaportfolio-three.vercel.app/</loc></url>
+  <url><loc>https://harshjhaportfolio-three.vercel.app/about</loc></url>
+  <url><loc>https://harshjhaportfolio-three.vercel.app/projects</loc></url>
+  <url><loc>https://harshjhaportfolio-three.vercel.app/services</loc></url>
+  <url><loc>https://harshjhaportfolio-three.vercel.app/certificates</loc></url>
+  <url><loc>https://harshjhaportfolio-three.vercel.app/contact</loc></url>
+</urlset>
