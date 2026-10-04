@@ -18,35 +18,6 @@ export default function Footer() {
         </p>
       </div>
 
-      <div className="footer-main">
-        <div className="footer-title-wrap">
-          <p className="footer-eyebrow">LET'S MAKE SOMETHING USEFUL</p>
-
-          <Link to="/contact" className="footer-big-link">
-            <span>Have an</span>
-            <span className="footer-big-accent">
-              idea<span className="footer-arrow">↗</span>
-            </span>
-            <span>?</span>
-          </Link>
-        </div>
-
-        <div className="footer-orbit">
-          <div className="footer-orbit-ring" />
-          <div className="footer-orbit-ring footer-orbit-ring-two" />
-
-          <div className="footer-orbit-center">
-            <span>LET'S</span>
-            <strong>BUILD</strong>
-            <span>TOGETHER</span>
-          </div>
-
-          <span className="footer-orbit-dot dot-one" />
-          <span className="footer-orbit-dot dot-two" />
-          <span className="footer-orbit-dot dot-three" />
-        </div>
-      </div>
-
       <div className="footer-links-area">
         <div className="footer-identity">
           <span className="footer-name">{site.name}</span>

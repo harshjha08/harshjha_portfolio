@@ -582,20 +582,6 @@ h3 {
    MAIN CTA
    --------------------------------------------------------- */
 
-.footer-main {
-  position: relative;
-  z-index: 2;
-
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 20rem;
-
-  align-items: center;
-  gap: 3rem;
-
-  min-height: 31rem;
-  padding: 4rem 0;
-}
-
 .footer-title-wrap {
   position: relative;
 }
@@ -661,135 +647,6 @@ h3 {
 
 .footer-big-link:hover .footer-arrow {
   transform: translate(0.15em, -0.08em);
-}
-
-/* ---------------------------------------------------------
-   ORBIT
-   --------------------------------------------------------- */
-
-.footer-orbit {
-  position: relative;
-
-  width: 18rem;
-  height: 18rem;
-
-  display: grid;
-  place-items: center;
-
-  justify-self: center;
-}
-
-.footer-orbit-ring {
-  position: absolute;
-  inset: 0;
-
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 50%;
-
-  animation: footer-spin 20s linear infinite;
-}
-
-.footer-orbit-ring::before {
-  content: "";
-
-  position: absolute;
-
-  width: 0.55rem;
-  height: 0.55rem;
-
-  top: 1.2rem;
-  left: 50%;
-
-  border-radius: 50%;
-
-  background: #8b7cff;
-  box-shadow: 0 0 18px rgba(139, 124, 255, 0.8);
-}
-
-.footer-orbit-ring-two {
-  inset: 1.8rem;
-
-  border-color: rgba(255, 255, 255, 0.08);
-
-  animation-direction: reverse;
-  animation-duration: 14s;
-}
-
-.footer-orbit-ring-two::before {
-  width: 0.35rem;
-  height: 0.35rem;
-
-  top: auto;
-  bottom: 0.8rem;
-
-  background: #7fd6e8;
-  box-shadow: 0 0 14px rgba(127, 214, 232, 0.7);
-}
-
-.footer-orbit-center {
-  position: relative;
-  z-index: 2;
-
-  width: 8rem;
-  height: 8rem;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-
-  backdrop-filter: blur(14px);
-
-  text-align: center;
-
-  line-height: 1.05;
-}
-
-.footer-orbit-center span {
-  color: #a9b1d2;
-
-  font-size: 0.55rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-}
-
-.footer-orbit-center strong {
-  margin: 0.25rem 0;
-
-  font-size: 1.2rem;
-  letter-spacing: -0.04em;
-}
-
-.footer-orbit-dot {
-  position: absolute;
-
-  width: 0.3rem;
-  height: 0.3rem;
-
-  border-radius: 50%;
-  background: #fff;
-
-  opacity: 0.6;
-}
-
-.dot-one {
-  left: 15%;
-  top: 30%;
-}
-
-.dot-two {
-  right: 10%;
-  bottom: 28%;
-}
-
-.dot-three {
-  left: 32%;
-  bottom: 4%;
 }
 
 /* ---------------------------------------------------------
@@ -958,45 +815,10 @@ h3 {
 }
 
 /* ---------------------------------------------------------
-   ANIMATION
-   --------------------------------------------------------- */
-
-@keyframes footer-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* ---------------------------------------------------------
    TABLET
    --------------------------------------------------------- */
 
 @media (max-width: 900px) {
-  .footer-main {
-    grid-template-columns: 1fr;
-    min-height: auto;
-    gap: 4rem;
-  }
-
-  .footer-orbit {
-    justify-self: start;
-    width: 13rem;
-    height: 13rem;
-  }
-
-  .footer-orbit-center {
-    width: 6rem;
-    height: 6rem;
-  }
-
-  .footer-orbit-center strong {
-    font-size: 0.95rem;
-  }
-
   .footer-links-area {
     grid-template-columns: 1fr 1fr;
   }
@@ -1027,32 +849,9 @@ h3 {
     display: none;
   }
 
-  .footer-main {
-    padding: 4rem 0 3rem;
-    gap: 3rem;
-  }
-
   .footer-big-link {
     font-size: clamp(3.5rem, 17vw, 5.5rem);
     line-height: 0.86;
-  }
-
-  .footer-orbit {
-    width: 10rem;
-    height: 10rem;
-  }
-
-  .footer-orbit-center {
-    width: 5rem;
-    height: 5rem;
-  }
-
-  .footer-orbit-center strong {
-    font-size: 0.78rem;
-  }
-
-  .footer-orbit-center span {
-    font-size: 0.4rem;
   }
 
   .footer-links-area {
@@ -1087,10 +886,6 @@ h3 {
    --------------------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
-  .footer-orbit-ring {
-    animation: none;
-  }
-
   .footer-big-link,
   .footer-nav-new a,
   .footer-social-new a,
