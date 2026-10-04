@@ -17,7 +17,7 @@ export const certificates = [
     date: "Dec 2025",
     category: "Programming & CS",
     tone: 0,
-    featured: true,
+    featured: false,
     credentialUrl: "",
   },
 
@@ -28,7 +28,7 @@ export const certificates = [
     date: "Dec 2025",
     category: "Programming & CS",
     tone: 0,
-    featured: true,
+    featured: false,
     credentialUrl: "",
   },
 
@@ -127,7 +127,7 @@ export const certificates = [
     date: "Apr 2026",
     category: "Programming & CS",
     tone: 0,
-    featured: true,
+    featured: false,
     credentialUrl: "",
   },
 
