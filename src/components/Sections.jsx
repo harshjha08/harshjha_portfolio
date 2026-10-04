@@ -6,109 +6,1150 @@ import { certificates } from '../data/certificates'
 import { projects } from '../data/projects'
 import ProjectRow from './ProjectRow'
 import Reveal from './Reveal'
-import { Art, CertArt } from './ProjectArt'
+import { Art, CertArt, certImage, serviceImage } from './ProjectArt'
 import { Arrow } from './Icons'
+
+
+/* =========================================================
+   FEATURED PROJECTS
+   ========================================================= */
 
 export const FeaturedProjects = ({ all }) => (
   <section className="section" aria-labelledby="work-h">
-    <Reveal as="h2" className="h2"><span id="work-h">Selected work</span></Reveal>
-    {projects.slice(0, all ? 99 : 4).map((p, i) => <ProjectRow key={p.id} p={p} index={i} />)}
+    <Reveal as="h2" className="h2">
+      <span id="work-h">Selected work</span>
+    </Reveal>
+
+    {projects
+      .slice(0, all ? 99 : 4)
+      .map((p, i) => (
+        <ProjectRow
+          key={p.id}
+          p={p}
+          index={i}
+        />
+      ))}
   </section>
 )
+
+
+/* =========================================================
+   SERVICES
+   ========================================================= */
+
 export function Services() {
   const [open, setOpen] = useState(0)
   const s = services[open] || services[0]
+
   return (
     <section className="section" aria-labelledby="svc-h">
-      <h2 id="svc-h" className="h2">What I build</h2>
+      <h2 id="svc-h" className="h2">
+        What I build
+      </h2>
+
       <div className="svc-wrap">
-        <ul className="svc">{services.map(([t, d], i) => (
-          <li key={t} onMouseEnter={() => setOpen(i)}>
-            <button aria-expanded={open === i} onFocus={() => setOpen(i)} onClick={() => setOpen(i)}><small>{String(i + 1).padStart(2, '0')}</small>{t}</button>
-            <p hidden={open !== i}>{d}</p>
-          </li>))}</ul>
-        <div className="svc-art" aria-hidden="true"><Art key={open} kind={s[2]} tone={s[3]} label="" /></div>
+        <ul className="svc">
+          {services.map(([t, d], i) => (
+            <li
+              key={t}
+              onMouseEnter={() => setOpen(i)}
+            >
+              <button
+                type="button"
+                aria-expanded={open === i}
+                onFocus={() => setOpen(i)}
+                onClick={() => setOpen(i)}
+              >
+                <small>
+                  {String(i + 1).padStart(2, '0')}
+                </small>
+
+                {t}
+              </button>
+
+              <p hidden={open !== i}>
+                {d}
+              </p>
+            </li>
+          ))}
+        </ul>
+
+        <div className="svc-art" aria-hidden="true">
+  {serviceImage(open) ? (
+    <img key={open} src={serviceImage(open)} alt="" />
+  ) : (
+    <Art key={open} kind={s[2]} tone={s[3]} label="" />
+  )}
+</div>
       </div>
     </section>
   )
 }
-const journey = [['2021 – 2022', 'Class 10, Mahil Gaila', 'Government Senior Secondary School, Mahil Gaila (S.B.S. Nagar).'],
-  ['2023 – 2024', 'Class 12, Humanities', 'Moved into an English-medium environment and kept my results strong. That is where I learned persistence beats perfection.'],
-  ['2025 – 2028', 'BCA at LPU', 'Chose computer science for the skills, not the trend. Now in second year.'],
-  ['Now', 'Frontend, then React', 'Started with HTML, CSS and JavaScript, then moved to React. Also working through Java, C, C++ and Python.'],
-  ['Now', 'Real projects', 'A tutor’s online platform, a cultural event site for my home village’s Dussehra, and a luxury e-commerce concept.']]
+
+
+/* =========================================================
+   JOURNEY DATA
+   ========================================================= */
+
+const journey = [
+  [
+    '2021 – 2022',
+    'Class 10, Mahil Gaila',
+    'Government Senior Secondary School, Mahil Gaila (S.B.S. Nagar).'
+  ],
+
+  [
+    '2023 – 2024',
+    'Class 12, Humanities',
+    'Moved into an English-medium environment and kept my results strong. That is where I learned persistence beats perfection.'
+  ],
+
+  [
+    '2025 – 2028',
+    'BCA at LPU',
+    'Chose computer science for the skills, not the trend. Now in second year.'
+  ],
+
+  [
+    'Now',
+    'Frontend, then React',
+    'Started with HTML, CSS and JavaScript, then moved to React. Also working through Java, C, C++ and Python.'
+  ],
+
+  [
+    'Now',
+    'Real projects',
+    'A tutor’s online platform, a cultural event site for my home village’s Dussehra, and a luxury e-commerce concept.'
+  ]
+]
+
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+
 export const About = () => (
-  <section className="section about" aria-labelledby="ab-h">
-    <h2 id="ab-h" className="h2">I learn by building real things</h2>
-    <div className="cols">
-      <div className="prose">
-        <p>I’m a second-year BCA student at Lovely Professional University, from Banga in Punjab. I picked technology because I wanted a career built on skills and steady learning.</p>
-        <p>Web development is where I’m strongest. I started with plain HTML, CSS and JavaScript and moved toward React, trying other areas along the way: databases, cloud and AI. I’d rather understand the basics properly than collect buzzwords.</p>
-        <p>What I care about is software that’s simple and clear to use. I like putting a real thing online, like the Dussehra event from the village my school is in.</p>
-        <div className="stackbox">{Object.entries(site.stack).map(([k, v]) => <p key={k} className="stack"><strong>{k}</strong> {v.join(', ')}</p>)}</div>
-        <div className="stackbox">{site.education.map(([a, b, c]) => <p key={b + c} className="stack"><strong>{a}</strong> {b}, {c}</p>)}</div>
+  <section
+    className="about-new"
+    aria-labelledby="about-title"
+  >
+    <div className="about-noise" />
+
+    <div className="about-head">
+      <div>
+        <span className="about-index">
+          01 / ABOUT
+        </span>
+
+        <h2 id="about-title">
+          More than a
+          <span>developer.</span>
+        </h2>
       </div>
-      <ol className="journey">{journey.map(([d, t, x]) => <li key={t}><small>{d}</small><h3>{t}</h3><p>{x}</p></li>)}</ol>
+
+      <p className="about-intro">
+        I learn by building real things, breaking them,
+        understanding why they broke, and building them
+        better the next time.
+      </p>
     </div>
+
+
+    <div className="about-layout">
+
+      <div className="about-story">
+
+        <div className="about-story-top">
+          <span className="about-label">
+            A LITTLE CONTEXT
+          </span>
+
+          <span className="about-year">
+            2026
+          </span>
+        </div>
+
+
+        <div className="about-copy">
+
+          <p className="about-lead">
+            I’m a second-year BCA student at
+            <strong> Lovely Professional University</strong>,
+            from Banga, Punjab.
+          </p>
+
+          <p>
+            I picked technology because I wanted a career built
+            around skills, curiosity and steady learning—not
+            simply around a degree.
+          </p>
+
+          <p>
+            Web development is where I’m strongest. I started
+            with plain HTML, CSS and JavaScript and gradually
+            moved towards React, while exploring databases,
+            cloud and AI along the way.
+          </p>
+
+          <p>
+            I care about the fundamentals. I’d rather understand
+            why something works than collect a list of technologies
+            that I barely use.
+          </p>
+
+          <p>
+            Most importantly, I like making things that actually
+            exist outside a code editor—websites, experiences and
+            useful digital products that people can interact with.
+          </p>
+
+        </div>
+
+
+        <div className="about-origin">
+          <span className="origin-mark">
+            “
+          </span>
+
+          <div>
+            <strong>
+              Build something real.
+            </strong>
+
+            <p>
+              That’s usually where the best learning starts.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+
+      <aside className="about-side">
+
+        <div className="about-card about-stack-card">
+
+          <div className="card-heading">
+            <span>01</span>
+
+            <strong>
+              My toolkit
+            </strong>
+          </div>
+
+
+          <div className="tech-groups">
+
+            {Object.entries(site.stack).map(
+              ([key, values]) => (
+                <div
+                  className="tech-group"
+                  key={key}
+                >
+                  <span>
+                    {key}
+                  </span>
+
+                  <div className="tech-list">
+                    {values.map((value) => (
+                      <b key={value}>
+                        {value}
+                      </b>
+                    ))}
+                  </div>
+                </div>
+              )
+            )}
+
+          </div>
+
+        </div>
+
+
+        <div className="about-card about-education-card">
+
+          <div className="card-heading">
+            <span>02</span>
+
+            <strong>
+              Currently
+            </strong>
+          </div>
+
+
+          {site.education.map(
+            ([a, b, c]) => (
+              <div
+                className="education-item"
+                key={b + c}
+              >
+                <small>
+                  {c}
+                </small>
+
+                <h3>
+                  {a}
+                </h3>
+
+                <p>
+                  {b}
+                </p>
+              </div>
+            )
+          )}
+
+        </div>
+
+      </aside>
+
+    </div>
+
+
+    <div className="about-journey">
+
+      <div className="journey-heading">
+
+        <span className="about-label">
+          THE JOURNEY
+        </span>
+
+        <p>
+          Not a straight line. Just a collection of things
+          I decided to learn by doing.
+        </p>
+
+      </div>
+
+
+      <div className="journey-track">
+
+        {journey.map(
+          ([date, title, description], index) => (
+            <article
+              className="journey-card"
+              key={title}
+            >
+              <div className="journey-number">
+                {String(index + 1).padStart(2, '0')}
+              </div>
+
+              <small>
+                {date}
+              </small>
+
+              <h3>
+                {title}
+              </h3>
+
+              <p>
+                {description}
+              </p>
+
+              <span className="journey-arrow">
+                ↗
+              </span>
+            </article>
+          )
+        )}
+
+      </div>
+
+    </div>
+
   </section>
 )
+
+
+/* =========================================================
+   CERTIFICATES
+   ========================================================= */
+
 export const Certificates = ({ all }) => {
   const cats = ['All', ...new Set(certificates.map((c) => c.category))]
+
   const [cat, setCat] = useState('All')
-  const list = (all ? certificates : certificates.filter((c) => c.featured)).filter((c) => cat === 'All' || c.category === cat)
+
+  const list = (all ? certificates : certificates.filter((c) => c.featured)).filter(
+    (c) => cat === 'All' || c.category === cat
+  )
+
   return (
     <section className="section" aria-labelledby="ce-h">
-      <h2 id="ce-h" className="h2">Credentials</h2>
-      {all && <div className="chips">{cats.map((c) => <button key={c} aria-pressed={cat === c} onClick={() => setCat(c)}>{c}</button>)}</div>}
-      <ul className="certgrid">{list.map((c, i) => (
-        <li key={c.title} style={{ '--r': `${(i % 3) - 1}deg` }}><div className="certart"><CertArt tone={c.tone} title={c.title} /></div>
-          <h3>{c.title}</h3><p>{[c.issuer, c.date].filter(Boolean).join(', ') || c.category}</p>{c.credentialUrl && <a className="link" href={c.credentialUrl}>Verify</a>}</li>))}</ul>
-      {!all && <Link className="link" to="/certificates">View all credentials <Arrow s={16} /></Link>}
+      <h2 id="ce-h" className="h2">
+        Credentials
+      </h2>
+
+      {all && (
+        <div className="chips">
+          {cats.map((c) => (
+            <button type="button" key={c} aria-pressed={cat === c} onClick={() => setCat(c)}>
+              {c}
+            </button>
+          ))}
+        </div>
+      )}
+
+      <ul className="certgrid">
+        {list.map((c, i) => {
+          const img = certImage(c.id)
+          return (
+            <li key={c.id} style={{ '--r': `${(i % 3) - 1}deg` }}>
+              <div className="certart">
+                {img ? (
+                  <a
+                    href={img}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Open ${c.title} certificate`}
+                  >
+                    <img src={img} alt={`${c.title} certificate`} loading="lazy" />
+                  </a>
+                ) : (
+                  <CertArt tone={c.tone} title={c.title} />
+                )}
+              </div>
+
+              <h3>{c.title}</h3>
+
+              <p>{[c.issuer, c.date].filter(Boolean).join(', ') || c.category}</p>
+
+              {c.credentialUrl && (
+                <a className="link" href={c.credentialUrl} target="_blank" rel="noreferrer">
+                  Verify
+                </a>
+              )}
+            </li>
+          )
+        })}
+      </ul>
+
+      {!all && (
+        <Link className="link" to="/certificates">
+          View all credentials
+          <Arrow s={16} />
+        </Link>
+      )}
     </section>
   )
 }
+
+
+/* =========================================================
+   PRESENCE
+   ========================================================= */
+
 export const Presence = () => (
-  <section className="section presence" aria-labelledby="pr-h">
-    <h2 id="pr-h" className="h2">Find me beyond this website.</h2>
-    <ul>{[['LinkedIn', site.linkedin], ['GitHub', site.github], ['Download CV', site.cv]].map(([l, h]) => <li key={l}><a href={h} {...(l === 'Download CV' ? { download: true } : {})}>{l}</a></li>)}</ul>
+  <section
+    className="section presence"
+    aria-labelledby="pr-h"
+  >
+    <h2
+      id="pr-h"
+      className="h2"
+    >
+      Find me beyond this website.
+    </h2>
+
+    <ul>
+      {[
+        ['LinkedIn', site.linkedin],
+        ['GitHub', site.github],
+        ['Download CV', site.cv]
+      ].map(([l, h]) => (
+        <li key={l}>
+          <a
+            href={h}
+            {...(
+              l === 'Download CV'
+                ? { download: true }
+                : {
+                    target: '_blank',
+                    rel: 'noreferrer'
+                  }
+            )}
+          >
+            {l}
+          </a>
+        </li>
+      ))}
+    </ul>
   </section>
 )
-const types = ['Business website', 'Landing page', 'Website redesign', 'Internship or job', 'Something else']
+
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+const contactTypes = [
+  'Business website',
+  'Landing page',
+  'Website redesign',
+  'Internship or job',
+  'Something else'
+]
+
+const contactBudgets = [
+  'Not sure yet',
+  'Under ₹10,000',
+  '₹10,000 – ₹25,000',
+  '₹25,000 – ₹50,000',
+  '₹50,000+'
+]
+
+
+/*
+  IMPORTANT:
+  Replace YOUR_FORM_ID with your actual Formspree form ID.
+
+  Example:
+  https://formspree.io/f/abcdwxyz
+*/
+
+const FORMSPREE_ENDPOINT =
+  'https://formspree.io/f/YOUR_FORM_ID'
+
+
 export function Contact() {
-  const [v, setV] = useState({ name: '', email: '', type: types[0], budget: '', message: '' })
-  const [err, setErr] = useState({}); const [st, setSt] = useState('idle')
-  const set = (k) => (e) => setV({ ...v, [k]: e.target.value })
-  const submit = async (e) => {
-    e.preventDefault(); const x = {}
-    if (v.name.trim().length < 2) x.name = 'Enter your name.'
-    if (!/^\S+@\S+\.\S+$/.test(v.email)) x.email = 'Enter a valid email address.'
-    if (v.message.trim().length < 10) x.message = 'Add a few words about your idea (at least 10 characters).'
-    setErr(x); if (Object.keys(x).length) return
-    setSt('loading')
-    try {
-      if (site.formEndpoint) { const r = await fetch(site.formEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(v) }); if (!r.ok) throw new Error() }
-      else window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(v.type + ' enquiry from ' + v.name)}&body=${encodeURIComponent(`${v.message}\n\nBudget: ${v.budget || 'not specified'}\nReply to: ${v.email}`)}`
-      setSt('done')
-    } catch { setSt('error') }
+
+  const [status, setStatus] = useState('idle')
+
+  const [selectedType, setSelectedType] = useState(
+    contactTypes[0]
+  )
+
+  const [selectedBudget, setSelectedBudget] = useState(
+    contactBudgets[0]
+  )
+
+  const [messageLength, setMessageLength] = useState(0)
+
+
+  const validate = (form) => {
+
+    const name =
+      form.elements.name.value.trim()
+
+    const email =
+      form.elements.email.value.trim()
+
+    const message =
+      form.elements.message.value.trim()
+
+    const errors = {}
+
+    if (name.length < 2) {
+      errors.name =
+        'Please enter your name.'
+    }
+
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+      errors.email =
+        'Please enter a valid email address.'
+    }
+
+    if (message.length < 10) {
+      errors.message =
+        'Tell me a little more about your idea.'
+    }
+
+    return errors
   }
-  const F = ({ id, label, children, e }) => <div className="fld"><label htmlFor={id}>{label}</label>{children}{e && <p className="ferr" id={id + '-e'} role="alert">{e}</p>}</div>
+
+
+  const submit = async (e) => {
+
+    e.preventDefault()
+
+    const form = e.currentTarget
+
+    const errors = validate(form)
+
+
+    /* Clear previous errors */
+
+    form
+      .querySelectorAll('.contact-error')
+      .forEach((element) => {
+        element.textContent = ''
+      })
+
+
+    /* Show new errors */
+
+    Object.entries(errors).forEach(
+      ([field, message]) => {
+
+        const error =
+          form.querySelector(
+            `[data-error="${field}"]`
+          )
+
+        if (error) {
+          error.textContent = message
+        }
+      }
+    )
+
+
+    /* Stop if invalid */
+
+    if (Object.keys(errors).length > 0) {
+
+      const firstField =
+        Object.keys(errors)[0]
+
+      const input =
+        form.elements[firstField]
+
+      input?.focus()
+
+      return
+    }
+
+
+    setStatus('loading')
+
+
+    try {
+
+      const formData =
+        new FormData(form)
+
+
+      const response =
+        await fetch(
+          FORMSPREE_ENDPOINT,
+          {
+            method: 'POST',
+            body: formData,
+            headers: {
+              Accept: 'application/json'
+            }
+          }
+        )
+
+
+      if (!response.ok) {
+        throw new Error(
+          'Form submission failed'
+        )
+      }
+
+
+      setStatus('success')
+
+    } catch (error) {
+
+      console.error(error)
+
+      setStatus('error')
+    }
+  }
+
+
+  /* =======================================================
+     SUCCESS SCREEN
+     ======================================================= */
+
+  if (status === 'success') {
+
+    return (
+      <section
+        className="contact-new contact-success"
+        aria-labelledby="contact-success-title"
+      >
+
+        <div className="contact-success-orbit">
+          <span />
+          <span />
+          <span />
+        </div>
+
+
+        <div className="contact-success-inner">
+
+          <span className="contact-kicker">
+            MESSAGE RECEIVED
+          </span>
+
+
+          <div className="contact-success-icon">
+            ✓
+          </div>
+
+
+          <h2 id="contact-success-title">
+            That’s on its way.
+          </h2>
+
+
+          <p>
+            Thanks for reaching out. I’ll go through
+            your idea and get back to you as soon as I can.
+          </p>
+
+
+          <button
+            type="button"
+            className="contact-reset"
+            onClick={() => {
+              setStatus('idle')
+              setMessageLength(0)
+            }}
+          >
+            Send another message
+
+            <span>
+              ↗
+            </span>
+          </button>
+
+        </div>
+
+      </section>
+    )
+  }
+
+
+  /* =======================================================
+     MAIN CONTACT
+     ======================================================= */
+
   return (
-    <section className="section contact" aria-labelledby="ct-h">
-      <div className="ct-copy">
-        <h2 id="ct-h" className="h2">Have an idea? Let’s turn it into something real.</h2>
-        <p>Tell me about your business, event or project. I’ll reply with how I’d approach it, usually within a day or two.</p>
-        <p className="links"><a href={`mailto:${site.email}`}>{site.email}</a><a href={site.linkedin}>LinkedIn</a><a href={site.github}>GitHub</a></p>
+    <section
+      className="contact-new"
+      aria-labelledby="contact-title"
+    >
+
+      <div className="contact-bg-grid" />
+
+      <div className="contact-glow contact-glow-one" />
+      <div className="contact-glow contact-glow-two" />
+
+
+      <div className="contact-shell">
+
+
+        {/* =================================================
+            INTRO
+            ================================================= */}
+
+        <div className="contact-intro">
+
+          <div className="contact-topline">
+
+            <span className="contact-kicker">
+              <i />
+              OPEN FOR GOOD PROJECTS
+            </span>
+
+            <span className="contact-index">
+              06 / CONTACT
+            </span>
+
+          </div>
+
+
+          <div className="contact-heading-wrap">
+
+            <span className="contact-small-word">
+              HAVE AN
+            </span>
+
+
+            <h2 id="contact-title">
+              IDEA<span>?</span>
+            </h2>
+
+
+            <div className="contact-heading-line">
+
+              <span />
+
+              <p>
+                Let’s turn it into something
+                <strong>
+                  {' '}useful, clear &amp; real.
+                </strong>
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div className="contact-note">
+
+            <div className="contact-note-mark">
+              +
+            </div>
+
+            <p>
+              You don’t need a perfectly formed brief.
+              Tell me what you’re trying to make and
+              we can figure out the rest.
+            </p>
+
+          </div>
+
+
+          <div className="contact-direct">
+
+            <span>
+              OR REACH ME DIRECTLY
+            </span>
+
+            <a
+              href={`mailto:${site.email}`}
+            >
+              {site.email}
+
+              <small>
+                ↗
+              </small>
+            </a>
+
+          </div>
+
+
+          <div className="contact-socials">
+
+            <a
+              href={site.linkedin}
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn
+              <span>↗</span>
+            </a>
+
+
+            <a
+              href={site.github}
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+              <span>↗</span>
+            </a>
+
+          </div>
+
+        </div>
+
+
+        {/* =================================================
+            FORM
+            ================================================= */}
+
+        <div className="contact-form-wrap">
+
+          <div className="contact-form-top">
+
+            <div>
+
+              <span>
+                START A CONVERSATION
+              </span>
+
+              <strong>
+                Tell me what you’re building.
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          <form
+            className="contact-form-new"
+            action={FORMSPREE_ENDPOINT}
+            method="POST"
+            onSubmit={submit}
+            noValidate
+          >
+
+            <input
+              type="hidden"
+              name="_subject"
+              value="New portfolio enquiry"
+              readOnly
+            />
+
+
+            {/* NAME + EMAIL */}
+
+            <div className="contact-field-row">
+
+              <div className="contact-field">
+
+                <label htmlFor="contact-name">
+                  <span>01</span>
+                  Your name
+                </label>
+
+                <input
+                  id="contact-name"
+                  name="name"
+                  type="text"
+                  placeholder="What should I call you?"
+                  autoComplete="name"
+                />
+
+                <p
+                  className="contact-error"
+                  data-error="name"
+                  role="alert"
+                />
+
+              </div>
+
+
+              <div className="contact-field">
+
+                <label htmlFor="contact-email">
+                  <span>02</span>
+                  Email address
+                </label>
+
+                <input
+                  id="contact-email"
+                  name="email"
+                  type="email"
+                  placeholder="you@example.com"
+                  autoComplete="email"
+                />
+
+                <p
+                  className="contact-error"
+                  data-error="email"
+                  role="alert"
+                />
+
+              </div>
+
+            </div>
+
+
+            {/* PROJECT TYPE */}
+
+            <fieldset className="contact-choice">
+
+              <legend>
+                <span>03</span>
+                What are we making?
+              </legend>
+
+
+              <div className="contact-pills">
+
+                {contactTypes.map(
+                  (type) => (
+                    <button
+                      type="button"
+                      className={
+                        selectedType === type
+                          ? 'contact-pill active'
+                          : 'contact-pill'
+                      }
+                      key={type}
+                      onClick={() =>
+                        setSelectedType(type)
+                      }
+                    >
+                      {type}
+                    </button>
+                  )
+                )}
+
+              </div>
+
+
+              <input
+                type="hidden"
+                name="project_type"
+                value={selectedType}
+                readOnly
+              />
+
+            </fieldset>
+
+
+            {/* BUDGET */}
+
+            <fieldset className="contact-choice">
+
+              <legend>
+                <span>04</span>
+                Rough budget
+              </legend>
+
+
+              <div className="contact-pills">
+
+                {contactBudgets.map(
+                  (budget) => (
+                    <button
+                      type="button"
+                      className={
+                        selectedBudget === budget
+                          ? 'contact-pill active'
+                          : 'contact-pill'
+                      }
+                      key={budget}
+                      onClick={() =>
+                        setSelectedBudget(budget)
+                      }
+                    >
+                      {budget}
+                    </button>
+                  )
+                )}
+
+              </div>
+
+
+              <input
+                type="hidden"
+                name="budget"
+                value={selectedBudget}
+                readOnly
+              />
+
+            </fieldset>
+
+
+            {/* MESSAGE */}
+
+            <div className="contact-field contact-message-field">
+
+              <label htmlFor="contact-message">
+                <span>05</span>
+                Tell me about it
+              </label>
+
+
+              <textarea
+                id="contact-message"
+                name="message"
+                rows="5"
+                maxLength="1200"
+                placeholder="What are you trying to build, improve or put online?"
+                onInput={(e) =>
+                  setMessageLength(
+                    e.currentTarget.value.length
+                  )
+                }
+              />
+
+
+              <div className="message-meta">
+
+                <p
+                  className="contact-error"
+                  data-error="message"
+                  role="alert"
+                />
+
+                <span>
+                  {messageLength} / 1200
+                </span>
+
+              </div>
+
+            </div>
+
+
+            {/* ERROR */}
+
+            {status === 'error' && (
+              <div
+                className="contact-submit-error"
+                role="alert"
+              >
+
+                <span>
+                  !
+                </span>
+
+                <p>
+                  Something went wrong while sending
+                  your message. Please try again or email
+                  me directly at{' '}
+
+                  <a
+                    href={`mailto:${site.email}`}
+                  >
+                    {site.email}
+                  </a>.
+                </p>
+
+              </div>
+            )}
+
+
+            {/* SUBMIT */}
+
+            <div className="contact-submit-row">
+
+              <p>
+                No pressure. No complicated brief.
+                <br />
+                Just start with what you have.
+              </p>
+
+
+              <button
+                className="contact-submit"
+                type="submit"
+                disabled={status === 'loading'}
+              >
+
+                <span>
+                  {status === 'loading'
+                    ? 'Sending...'
+                    : 'Send enquiry'}
+                </span>
+
+                <i>
+                  ↗
+                </i>
+
+              </button>
+
+            </div>
+
+          </form>
+
+        </div>
+
       </div>
-      {st === 'done' ? <div className="ct-done" role="status"><h3>Thank you, {v.name.split(' ')[0]}.</h3><p>{site.formEndpoint ? 'Your message is on its way. I’ll reply by email.' : 'Your email app should have opened with the message ready to send. If it didn’t, write to ' + site.email + '.'}</p></div> :
-      <form className="ct-form" onSubmit={submit} noValidate>
-        <F id="name" label="Name" e={err.name}><input id="name" value={v.name} onChange={set('name')} autoComplete="name" aria-invalid={!!err.name} aria-describedby={err.name ? 'name-e' : undefined} /></F>
-        <F id="email" label="Email" e={err.email}><input id="email" type="email" value={v.email} onChange={set('email')} autoComplete="email" aria-invalid={!!err.email} aria-describedby={err.email ? 'email-e' : undefined} /></F>
-        <F id="type" label="Project type"><select id="type" value={v.type} onChange={set('type')}>{types.map((t) => <option key={t}>{t}</option>)}</select></F>
-        <F id="budget" label="Budget range (optional)"><select id="budget" value={v.budget} onChange={set('budget')}><option value="">Not sure yet</option><option>Under ₹10,000</option><option>₹10,000 – ₹25,000</option><option>₹25,000 and above</option></select></F>
-        <F id="message" label="Your idea" e={err.message}><textarea id="message" rows="5" value={v.message} onChange={set('message')} aria-invalid={!!err.message} aria-describedby={err.message ? 'message-e' : undefined} /></F>
-        <button className="hb dark" disabled={st === 'loading'}>{st === 'loading' ? 'Sending…' : 'Send message'} <Arrow s={18} /></button>
-        {st === 'error' && <p className="ferr" role="alert">Something went wrong. Please try again or email {site.email}.</p>}
-      </form>}
+
+
+      {/* =================================================
+          BOTTOM LINE
+          ================================================= */}
+
+      <div className="contact-bottom-line">
+
+        <span>
+          AVAILABLE FOR SELECT PROJECTS
+        </span>
+
+
+        <div>
+          <i />
+          India · Remote friendly
+        </div>
+
+
+        <span>
+          {new Date().getFullYear()}
+        </span>
+
+      </div>
+
     </section>
   )
 }
