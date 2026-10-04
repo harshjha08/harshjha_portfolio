@@ -1,16 +1,6 @@
-// Real certifications.
-// Each `id` is also the image file name:
-// put the image in:
-// src/assets/images/certificates/<id>.jpg
-//
-// Supported formats:
-// jpg, jpeg, png, webp
-//
-// If no image exists, the UI can fall back to a generated graphic.
-
 export const certificates = [
   {
-    id: "python-intro",
+    id: "cs105-python-intro",
     title: "CS105: Introduction to Python",
     issuer: "Saylor University",
     date: "Apr 2026",
@@ -21,46 +11,35 @@ export const certificates = [
   },
 
   {
-    id: "cpp-bootcamp",
-    title: "C++ Bootcamp",
-    issuer: "LetsUpgrade",
-    date: "Feb 2026",
+    id: "cs301-computer-architecture",
+    title: "CS301: Computer Architecture",
+    issuer: "Saylor University",
+    date: "Dec 2025",
     category: "Programming & CS",
-    tone: 4,
-    featured: false,
-    credentialUrl: "",
-  },
-
-  {
-    id: "complete-html",
-    title: "Complete HTML",
-    issuer: "Knowledge Gate",
-    date: "Jul 2026",
-    category: "Web Development",
-    tone: 1,
-    featured: false,
-    credentialUrl: "",
-  },
-
-  {
-    id: "fullstack-webinar",
-    title: "Webinar: Full-stack Skills for Product-based Companies",
-    issuer: "HCL Guvi",
-    date: "Nov 2025",
-    category: "Web Development",
     tone: 0,
-    featured: false,
+    featured: true,
     credentialUrl: "",
   },
 
   {
-    id: "ai-tools-workshop",
-    title: "AI Tools Workshop",
-    issuer: "Be10x",
-    date: "Oct 2025",
+    id: "cs107-cpp",
+    title: "CS107: C++ Programming",
+    issuer: "Saylor University",
+    date: "Dec 2025",
+    category: "Programming & CS",
+    tone: 0,
+    featured: true,
+    credentialUrl: "",
+  },
+
+  {
+    id: "generative-ai",
+    title: "Generative AI",
+    issuer: "Outskill",
+    date: "Dec 2025",
     category: "AI & Machine Learning",
-    tone: 2,
-    featured: false,
+    tone: 0,
+    featured: true,
     credentialUrl: "",
   },
 
@@ -87,6 +66,61 @@ export const certificates = [
   },
 
   {
+    id: "fullstack-genai-era",
+    title: "Full Stack Development in GenAI Era",
+    issuer: "WsCube Tech",
+    date: "Jan 2026",
+    category: "Web Development",
+    tone: 0,
+    featured: false,
+    credentialUrl: "",
+  },
+
+  {
+    id: "react-basics",
+    title: "React Basics",
+    issuer: "WsCube Tech",
+    date: "Dec 2025",
+    category: "Web Development",
+    tone: 0,
+    featured: false,
+    credentialUrl: "",
+  },
+
+  {
+    id: "complete-html",
+    title: "Complete HTML",
+    issuer: "Knowledge Gate",
+    date: "Jul 2026",
+    category: "Web Development",
+    tone: 1,
+    featured: false,
+    credentialUrl: "",
+  },
+
+  {
+    id: "cpp-bootcamp",
+    title: "C++ Bootcamp",
+    issuer: "LetsUpgrade",
+    date: "Feb 2026",
+    category: "Programming & CS",
+    tone: 4,
+    featured: false,
+    credentialUrl: "",
+  },
+
+  {
+    id: "ethical-hacking-cybersecurity",
+    title: "Ethical Hacking & Cybersecurity",
+    issuer: "VaultofCodes",
+    date: "Nov 2025",
+    category: "Cybersecurity",
+    tone: 0,
+    featured: false,
+    credentialUrl: "",
+  },
+
+  {
     id: "dsa-problem-solving",
     title: "Technical Event on DSA Problem Solving",
     issuer: "AlgoArena SCA LPU",
@@ -109,11 +143,11 @@ export const certificates = [
   },
 
   {
-    id: "fullstack-genai-era",
-    title: "Full Stack Development in GenAI Era",
-    issuer: "WsCube Tech",
+    id: "viksit-bharat-dialogue",
+    title: "Viksit Bharat Young Leaders Dialogue",
+    issuer: "Ministry of Youth Affairs & Sports",
     date: "Jan 2026",
-    category: "Web Development",
+    category: "Competitions & Events",
     tone: 0,
     featured: false,
     credentialUrl: "",
@@ -142,66 +176,33 @@ export const certificates = [
   },
 
   {
-    id: "ethical-hacking-cybersecurity",
-    title: "Ethical Hacking & Cybersecurity",
-    issuer: "VaultofCodes",
-    date: "Nov 2025",
-    category: "Cybersecurity",
-    tone: 0,
-    featured: false,
-    credentialUrl: "",
-  },
-
-  {
-    id: "react-basics",
-    title: "React Basics",
-    issuer: "WsCube Tech",
-    date: "Dec 2025",
-    category: "Web Development",
-    tone: 0,
-    featured: false,
-    credentialUrl: "",
-  },
-
-  {
-    id: "cs107-cpp",
-    title: "CS107: C++ Programming",
-    issuer: "Saylor University",
-    date: "Dec 2025",
-    category: "Programming & CS",
-    tone: 0,
-    featured: false,
-    credentialUrl: "",
-  },
-
-  {
-    id: "cs301-computer-architecture",
-    title: "CS301: Computer Architecture",
-    issuer: "Saylor University",
-    date: "Dec 2025",
-    category: "Programming & CS",
-    tone: 0,
-    featured: false,
-    credentialUrl: "",
-  },
-
-  {
-    id: "generative-ai",
-    title: "Generative AI",
-    issuer: "Outskill",
-    date: "Dec 2025",
-    category: "AI & Machine Learning",
-    tone: 0,
-    featured: true,
-    credentialUrl: "",
-  },
-
-  {
-    id: "viksit-bharat-dialogue",
-    title: "Viksit Bharat Young Leaders Dialogue",
-    issuer: "Ministry of Youth Affairs & Sports",
-    date: "Jan 2026",
+    id: "T-C-T-C",
+    title: "Times Critical Thinking Championship",
+    issuer: "Times Foundation & The Times of India",
+    date: "July 2026",
     category: "Competitions & Events",
+    tone: 0,
+    featured: false,
+    credentialUrl: "",
+  },
+
+  {
+    id: "ai-tools-workshop",
+    title: "AI Tools Workshop",
+    issuer: "Be10x",
+    date: "Oct 2025",
+    category: "AI & Machine Learning",
+    tone: 2,
+    featured: false,
+    credentialUrl: "",
+  },
+
+  {
+    id: "fullstack-webinar",
+    title: "Webinar: Full-stack Skills for Product-based Companies",
+    issuer: "HCL Guvi",
+    date: "Nov 2025",
+    category: "Web Development",
     tone: 0,
     featured: false,
     credentialUrl: "",
